@@ -1,12 +1,9 @@
-@echo off 
-title Building TIMView EXE...
+@echo off
+set EXENAME=TIMView
 
-REM ---- CLEAN OLD BUILDS ----
-if exist build rmdir /s /q build 
-if exist dist rmdir /s /q dist 
+REM Build gtd.py into a single EXE with no console window
+ pyinstaller --onefile --windowed --name TIMView --exclude-module tkinter --exclude-module test timview-v2.py
 
 echo.
-echo === BUILDING EXE ===
-echo.
-
-REM ---- BUILD EXE ----
+echo %EXENAME% built!
+pause
