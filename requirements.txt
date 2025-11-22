@@ -1,0 +1,4 @@
+tkinter
+PIL
+numpy
+tkinterdnd2
