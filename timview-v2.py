@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 TIM Viewer & Converter - Full script with UI upgrades
 
