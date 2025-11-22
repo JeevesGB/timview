@@ -1,26 +1,3 @@
-
-"""
-TIM Viewer & Converter - Full script with UI upgrades
-
-Features:
-- View .tim (PlayStation TIM), .png, .bmp
-- Convert TIM -> PNG/BMP, PNG/BMP -> TIM (basic)
-- Modern dark ttk UI
-- Split layout: file list, thumbnail grid, preview
-- Drag & drop support via tkinterdnd2 (optional)
-- Right-click context menu for files
-- Palette (CLUT) preview & quick palette switch
-- TIM header inspector
-- Keyboard navigation & mouse wheel zoom
-- Batch conversion and thumbnails caching
-
-Dependencies:
-- Pillow (PIL)
-- numpy
-- tkinter (stdlib)
-- tkinterdnd2 (optional, for drag & drop)
-"""
-
 import os
 import sys
 import struct
@@ -33,8 +10,6 @@ import subprocess
 import math
 import io
 import traceback
-
-# ---------- Optional drag & drop ----------
 try:
     from tkinterdnd2 import DND_FILES, TkinterDnD
     DND_AVAILABLE = True
@@ -136,11 +111,7 @@ def read_tim(filepath, palette_index=0):
 
 
 def image_to_tim(image: Image.Image, bpp=8):
-    """
-    Basic TIM writer: writes TIM with CLUT for 4bpp or 8bpp.
-    Input image should be 'P' mode (palette) or will be converted.
-    Returns bytes of TIM file.
-    """
+
     if bpp not in (4, 8):
         raise NotImplementedError("Only 4bpp and 8bpp supported for writing TIM")
 
